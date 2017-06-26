@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.lily.view.slidingtab.SlidingTabBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stb_tab"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textColor="@color/color_2b2b2b"
+    android:textSize="14sp"
+    app:pstsIndicatorColor="@color/colorAccent"
+    app:pstsIndicatorHeight="2dp"
+    app:pstsShouldExpand="false"
+    app:pstsTextSelectedColor="@color/colorAccent" />

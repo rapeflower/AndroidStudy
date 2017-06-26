@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/item_brand"
+        android:layout_width="@dimen/dimen_480px"
+        android:layout_height="@dimen/dimen_256px"
+        android:background="@drawable/shape_solid_white_20_corners_6px_51">
+
+        <ImageView
+            android:id="@+id/iv_brand_img"
+            android:layout_width="@dimen/dimen_480px"
+            android:layout_height="@dimen/dimen_170px"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_test_1"/>
+
+        <ImageView
+            android:id="@+id/iv_sub_brand_first"
+            android:layout_width="@dimen/dimen_130px"
+            android:layout_height="@dimen/dimen_60px"
+            android:layout_marginLeft="@dimen/dimen_60px"
+            android:layout_marginBottom="@dimen/dimen_24px"
+            android:layout_alignParentBottom="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_test_1"/>
+
+        <ImageView
+            android:id="@+id/iv_sub_brand_second"
+            android:layout_width="@dimen/dimen_130px"
+            android:layout_height="@dimen/dimen_60px"
+            android:layout_marginRight="@dimen/dimen_60px"
+            android:layout_marginBottom="@dimen/dimen_24px"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_test_1"/>
+    </RelativeLayout>
+
+</LinearLayout>

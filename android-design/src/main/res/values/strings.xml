@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Android-design</string>
+    <string name="mvc">MVC</string>
+    <string name="mvvm">MVVM</string>
+    <string name="mvp">MVP</string>
+
+    <string name="user_id">用户ID</string>
+    <string name="user_name">用户名：</string>
+    <string name="user_pwd">密码：</string>
+
+    <string name="save">保存</string>
+    <string name="show">显示</string>
+    <string name="clear">清空</string>
+</resources>
