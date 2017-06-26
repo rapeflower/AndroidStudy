@@ -35,4 +35,12 @@
         <!-- 宽为match_parent ，指示器的宽需手动计算的问题,这个属性设置为true,则指示器的位置和字体的宽一样-->
         <!--    <attr name="pstsIndicatorWrap" format="boolean" />-->
     </declare-styleable>
+
+    <!-- 自定义支持圆角、圆形的ImageView -->
+    <declare-styleable name="J1ImageView">
+        <attr name="is_circle" format="boolean" />
+        <attr name="radius" format="dimension" />
+        <attr name="top_left_right_round" format="boolean" />
+        <attr name="bottom_left_right_round" format="boolean" />
+    </declare-styleable>
 </resources>
