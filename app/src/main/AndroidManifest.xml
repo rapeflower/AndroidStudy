@@ -23,6 +23,7 @@
         <activity android:name=".activity.TabActivity" />
         <activity android:name=".activity.SlidingTabBarActivity" />
         <activity android:name=".activity.TestActivity" />
+        <activity android:name=".activity.DefaultPicActivity" />
     </application>
 
 </manifest>

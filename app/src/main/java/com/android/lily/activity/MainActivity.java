@@ -14,7 +14,6 @@ import com.android.lily.R;
 
 /**
  * <pre>
- * @author zhy 
  * http://blog.csdn.net/lmj623565791/article/details/43131133
  * </pre>
  */
@@ -28,7 +27,7 @@ public class MainActivity extends ListActivity
 		getListView().setAdapter(
 				new ArrayAdapter<String>(this,
 						android.R.layout.simple_list_item_1, new String[] {
-								"圆形菜单1", "圆形菜单2", "测试", "RoundView"}));
+								"圆形菜单1", "圆形菜单2", "测试", "RoundView", "默认图适配"}));
 
 	}
 
@@ -36,15 +35,15 @@ public class MainActivity extends ListActivity
 	protected void onListItemClick(ListView l, View v, int position, long id)
 	{
 		Intent intent = null;
-		if (position == 0)
-		{
+		if (position == 0) {
 			intent = new Intent(this, CCBActivity.class);
 		} else if (position == 2) {
 			intent = new Intent(this, SlidingTabBarActivity.class);
-		}else if (position == 3) {
+		} else if (position == 3) {
 			intent = new Intent(this, TestActivity.class);
-		} else
-		{
+		} else if (position == 4) {
+			intent = new Intent(this, DefaultPicActivity.class);
+		} else {
 			intent = new Intent(this, CircleActivity.class);
 		}
 		startActivity(intent);
