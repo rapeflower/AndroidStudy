@@ -77,7 +77,6 @@ public class J1ImageView extends ImageView {
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        android.util.Log.w(TAG, " onDraw ");
 
         android.util.Log.w(TAG, "mSrcBitmap = " + mSrcBitmap);
         if (mSrcBitmap == null && !isSetImageResource) {
@@ -91,6 +90,7 @@ public class J1ImageView extends ImageView {
     private void adaptationSrcSize() {
         Drawable drawable = null;
         int min = Math.min(vWidth, vHeight);
+        android.util.Log.w(TAG, " min = " + min);
         if (min >= STANDARD_SIZE_PX_400) {
             drawable = DrawableHelper.getDrawable400(mContext);
         } else if (min >= STANDARD_SIZE_PX_300 && min < STANDARD_SIZE_PX_300) {
