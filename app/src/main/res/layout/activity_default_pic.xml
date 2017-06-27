@@ -4,16 +4,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.android.lily.view.special.SpecialImageView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_200px"
-        android:layout_marginTop="@dimen/dimen_20px"
-        android:layout_gravity="center"
-        android:src="@drawable/turnplate_inner_icon"/>
-
     <!--<com.android.lily.view.special.J1ImageView-->
         <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:src="@drawable/ic_test_2"-->
-        <!--app:is_circle="true"/>-->
+        <!--android:layout_height="@dimen/dimen_300px"-->
+        <!--android:layout_marginTop="@dimen/dimen_20px"-->
+        <!--android:layout_gravity="center" />-->
+
+    <com.android.lily.view.special.J1ImageView
+        android:layout_width="@dimen/dimen_100px"
+        android:layout_height="@dimen/dimen_80px"
+        android:layout_marginTop="@dimen/dimen_20px"
+        android:layout_gravity="center" />
 </LinearLayout>

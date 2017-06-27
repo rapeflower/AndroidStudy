@@ -37,7 +37,7 @@
     </declare-styleable>
 
     <!-- 自定义支持圆角、圆形的ImageView -->
-    <declare-styleable name="J1ImageView">
+    <declare-styleable name="MultipleImageView">
         <attr name="is_circle" format="boolean" />
         <attr name="radius" format="dimension" />
         <attr name="top_left_right_round" format="boolean" />
