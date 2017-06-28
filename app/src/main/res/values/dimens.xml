@@ -101,6 +101,7 @@
     <dimen name="dimen_360px">180dp</dimen>
     <dimen name="dimen_380px">190dp</dimen>
     <dimen name="dimen_390px">195dp</dimen>
+    <dimen name="dimen_400px">200dp</dimen>
     <dimen name="dimen_404px">202dp</dimen>
     <dimen name="dimen_420px">210dp</dimen>
     <dimen name="dimen_422px">211dp</dimen>
@@ -112,6 +113,7 @@
     <dimen name="dimen_558px">254dp</dimen>
     <dimen name="dimen_580px">290dp</dimen>
     <dimen name="dimen_600px">300dp</dimen>
+    <dimen name="dimen_640px">320dp</dimen>
     <dimen name="dimen_648px">324dp</dimen>
     <dimen name="dimen_700px">350dp</dimen>
 </resources>
