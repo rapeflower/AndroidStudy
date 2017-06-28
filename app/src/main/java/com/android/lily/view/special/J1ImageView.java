@@ -76,10 +76,12 @@ public class J1ImageView extends ImageView {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        vWidth = measureSize(widthMeasureSpec, defaultSize);
-        vHeight = measureSize(heightMeasureSpec, defaultSize);
-        setMeasuredDimension(vWidth, vHeight);
-        //android.util.Log.w(TAG, "width = " + vWidth + ", height = " + vHeight);
+        if (mSrcBitmap == null) {
+            vWidth = measureSize(widthMeasureSpec, defaultSize);
+            vHeight = measureSize(heightMeasureSpec, defaultSize);
+            setMeasuredDimension(vWidth, vHeight);
+        }
+        android.util.Log.w(TAG, "width = " + vWidth + ", height = " + vHeight);
     }
 
     /**
@@ -94,7 +96,7 @@ public class J1ImageView extends ImageView {
         int result = defaultValue;
         int specMode = MeasureSpec.getMode(measureSpec);
         int specSize = MeasureSpec.getSize(measureSpec);
-
+        //android.util.Log.w(TAG, "specSize = " + specSize);
         switch (specMode) {
             // Mode = UNSPECIFIED,AT_MOST时使用提供的默认大小
             case MeasureSpec.AT_MOST://相当于我们设置为wrap_content
@@ -113,8 +115,8 @@ public class J1ImageView extends ImageView {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        android.util.Log.w(TAG, "mSrcBitmap = " + mSrcBitmap);
         if (mSrcBitmap == null && !isSetImageResource) {
+            //android.util.Log.w(TAG, "mSrcBitmap = " + mSrcBitmap);
             adaptationSrcSize();
         }
     }
@@ -125,22 +127,24 @@ public class J1ImageView extends ImageView {
     private void adaptationSrcSize() {
         Drawable drawable = null;
         int min = Math.min(vWidth, vHeight);
-        android.util.Log.w(TAG, " min = " + min);
-        if (min >= STANDARD_SIZE_PX_400) {
+        //android.util.Log.w(TAG, " min = " + min);
+        if (min > STANDARD_SIZE_PX_400) {
             drawable = DrawableHelper.getDrawable400(mContext);
-        } else if (min >= STANDARD_SIZE_PX_300 && min < STANDARD_SIZE_PX_400) {
+        } else if ((min == STANDARD_SIZE_PX_400) || (min > STANDARD_SIZE_PX_300 && min < STANDARD_SIZE_PX_400)) {
             drawable = DrawableHelper.getDrawable300(mContext);
-        } else if (min >= STANDARD_SIZE_PX_200 && min < STANDARD_SIZE_PX_300) {
+        } else if ((min == STANDARD_SIZE_PX_300) || (min > STANDARD_SIZE_PX_200 && min < STANDARD_SIZE_PX_300)) {
             drawable = DrawableHelper.getDrawable200(mContext);
-        } else if (min >= STANDARD_SIZE_PX_100 && min < STANDARD_SIZE_PX_200) {
+        } else if ( (min == STANDARD_SIZE_PX_200) || (min > STANDARD_SIZE_PX_100 && min < STANDARD_SIZE_PX_200)) {
             drawable = DrawableHelper.getDrawable100(mContext);
         } else {
             drawable = DrawableHelper.getDrawable100(mContext);
-            float radio = vWidth / STANDARD_SIZE_PX_100;
+            float radio = ((float) min) / STANDARD_SIZE_PX_100;
+            android.util.Log.w(TAG, " radio = " + radio);
             //对Drawable进行按比例缩放后重新赋值
             drawable = DrawableHelper.scaleDrawable(mContext, drawable, radio);
         }
 
+        setScaleType(ScaleType.CENTER);
         setImageDrawable(drawable);
         isSetImageResource = true;
     }
