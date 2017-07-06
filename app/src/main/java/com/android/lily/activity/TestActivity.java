@@ -37,10 +37,10 @@ public class TestActivity extends Activity{
                         RoundedCornersTransformation.CornerType.TOP))
                 .into(iv);
 
-        Glide.with(this)
-                .load("http://img.j1.cn/upload/pic/brandStreet/1499131077234.jpg")
-                .bitmapTransform(new RoundedCornersTransformation(this, 10, 0,
-                        RoundedCornersTransformation.CornerType.ALL))
-                .into(j1ImageView);
+//        Glide.with(this)
+//                .load("http://img.j1.cn/upload/pic/brandStreet/1499131077234.jpg")
+//                .bitmapTransform(new RoundedCornersTransformation(this, 10, 0,
+//                        RoundedCornersTransformation.CornerType.TOP))
+//                .into(j1ImageView);
     }
 }

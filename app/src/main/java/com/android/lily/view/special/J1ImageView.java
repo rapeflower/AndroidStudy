@@ -3,6 +3,8 @@ package com.android.lily.view.special;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -139,7 +141,8 @@ public class J1ImageView extends ImageView {
         
         setScaleType(ScaleType.CENTER);
         setImageDrawable(drawable);
-        setBackgroundColor(mContext.getResources().getColor(R.color.color_eeeeee));
+//        setBackgroundColor(mContext.getResources().getColor(R.color.color_eeeeee));
+        setBackground(mContext.getResources().getDrawable(R.drawable.shape_iv_bg));
     }
 
     private boolean isDefaultImageDrawable() {
