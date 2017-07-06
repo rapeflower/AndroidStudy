@@ -1,22 +1,19 @@
 package com.android.lily.view.special;
 
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
 import com.android.lily.R;
-import com.android.lily.utils.DisplayUnitUtils;
 
 /**
- * Created by rape flower on 17/6/26.
+ * @author rape flower
+ * @Date 2017-06-26 17:01
+ * @descripe 自带默认图显示的ImageView
  */
 public class J1ImageView extends ImageView {
 
@@ -25,6 +22,7 @@ public class J1ImageView extends ImageView {
     /**
      * ImageView显示中心Log的尺寸标准
      */
+    private static int STANDARD_SIZE_PX_50 = 50;
     private static int STANDARD_SIZE_PX_100 = 100;
     private static int STANDARD_SIZE_PX_200 = 200;
     private static int STANDARD_SIZE_PX_300 = 300;
@@ -32,13 +30,11 @@ public class J1ImageView extends ImageView {
     private static int defaultSize = 0;
 
     private Context mContext;
-    private Paint mPaint;
-    private Bitmap mSrcBitmap;
-    private boolean isSetImageResource = false;
-    int [] sysAttrs = {android.R.attr.src};
-    float density = 0;
-    int vWidth = 0;//控件的宽度
-    int vHeight = 0;//控件的高度
+    private int vWidth = 0;//控件的宽度
+    private int vHeight = 0;//控件的高度
+    private ScaleType setScaleType = ScaleType.CENTER;
+    private boolean isDefaultImage = true;
+    private Drawable backgroudDrawable;
 
     public J1ImageView(Context context) {
         this(context, null);
@@ -50,39 +46,40 @@ public class J1ImageView extends ImageView {
 
     public J1ImageView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initLayout(context, attrs, defStyleAttr);
+    }
+
+    private void initLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         this.mContext = context;
+        STANDARD_SIZE_PX_50 = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_50px);
         STANDARD_SIZE_PX_100 = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_100px);
         STANDARD_SIZE_PX_200 = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_200px);
         STANDARD_SIZE_PX_300 = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_300px);
-        STANDARD_SIZE_PX_400 = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_400px);
+        STANDARD_SIZE_PX_400 = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_404px);
         defaultSize = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_100px);
-        density = DisplayUnitUtils.getDisplayScaleDensity(mContext);
 
-        TypedArray ta = context.obtainStyledAttributes(attrs, sysAttrs, defStyleAttr, 0);
-        int srcResource = attrs.getAttributeResourceValue(NAMESPACE, "src", 0);
-        if (srcResource != 0) {
-            mSrcBitmap = BitmapFactory.decodeResource(getResources(), srcResource);
+        setScaleType = getScaleType();
+
+        if (attrs == null)
+            return;
+        int res = attrs.getAttributeResourceValue(NAMESPACE, "src", 0);
+        if (res > 0) {
+            isDefaultImage = false;
         }
-        ta.recycle();
-
-        mPaint = new Paint();
-        mPaint.setColor(Color.WHITE);
-        mPaint.setAntiAlias(true);
-        isSetImageResource = false;
-
-        setBackgroundColor(context.getResources().getColor(R.color.color_1A000000));
+        backgroudDrawable = getBackground();
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        if (mSrcBitmap == null) {
+        if (isDefaultImageDrawable()) {
             vWidth = measureSize(widthMeasureSpec, defaultSize);
             vHeight = measureSize(heightMeasureSpec, defaultSize);
             setMeasuredDimension(vWidth, vHeight);
         }
-        android.util.Log.w(TAG, "width = " + vWidth + ", height = " + vHeight);
+        //android.util.Log.w(TAG, "width = " + vWidth + ", height = " + vHeight);
     }
+
 
     /**
      * 测量大小
@@ -115,8 +112,8 @@ public class J1ImageView extends ImageView {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (mSrcBitmap == null && !isSetImageResource) {
-            //android.util.Log.w(TAG, "mSrcBitmap = " + mSrcBitmap);
+        if (isDefaultImageDrawable()) {
+            // android.util.Log.w(TAG, "mSrcBitmap onDraw");
             adaptationSrcSize();
         }
     }
@@ -134,19 +131,44 @@ public class J1ImageView extends ImageView {
             drawable = DrawableHelper.getDrawable300(mContext);
         } else if ((min == STANDARD_SIZE_PX_300) || (min > STANDARD_SIZE_PX_200 && min < STANDARD_SIZE_PX_300)) {
             drawable = DrawableHelper.getDrawable200(mContext);
-        } else if ( (min == STANDARD_SIZE_PX_200) || (min > STANDARD_SIZE_PX_100 && min < STANDARD_SIZE_PX_200)) {
+        } else if ((min == STANDARD_SIZE_PX_200) || (min > STANDARD_SIZE_PX_100 && min < STANDARD_SIZE_PX_200)) {
             drawable = DrawableHelper.getDrawable100(mContext);
-        } else {
-            drawable = DrawableHelper.getDrawable100(mContext);
-            float radio = ((float) min) / STANDARD_SIZE_PX_100;
-            android.util.Log.w(TAG, " radio = " + radio);
-            //对Drawable进行按比例缩放后重新赋值
-            drawable = DrawableHelper.scaleDrawable(mContext, drawable, radio);
+        } else if ((min == STANDARD_SIZE_PX_100) || (min >= STANDARD_SIZE_PX_50 && min < STANDARD_SIZE_PX_100)) {
+            drawable = DrawableHelper.getDrawable50(mContext);
         }
-
+        
         setScaleType(ScaleType.CENTER);
         setImageDrawable(drawable);
-        isSetImageResource = true;
+        setBackgroundColor(mContext.getResources().getColor(R.color.color_eeeeee));
     }
 
+    private boolean isDefaultImageDrawable() {
+        return isDefaultImage;
+    }
+
+    @Override
+    public void setImageDrawable(@Nullable Drawable drawable) {
+        reSetScaleType();
+        super.setImageDrawable(drawable);
+        // android.util.Log.w(TAG, "setImageDrawable = " + drawable + ", " + isDefaultImageDrawable());
+        isDefaultImage = drawable == null;
+        if (!isDefaultImageDrawable() ){
+            DrawableHelper.setBackground(this,backgroudDrawable);
+        }
+    }
+
+    @Override
+    public void setImageResource(@DrawableRes int resId) {
+        reSetScaleType();
+        super.setImageResource(resId);
+        isDefaultImage = resId <= 0;
+        if (!isDefaultImageDrawable() ){
+            DrawableHelper.setBackground(this,backgroudDrawable);
+        }
+    }
+
+    private void reSetScaleType() {
+        if (!isDefaultImageDrawable() && setScaleType != null && setScaleType != ScaleType.CENTER)
+            setScaleType(setScaleType);
+    }
 }
