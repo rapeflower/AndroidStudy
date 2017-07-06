@@ -9,7 +9,6 @@ import com.bigkoo.convenientbanner.holder.Holder;
 import com.bumptech.glide.Glide;
 
 /**
- * Created by Sai on 15/8/4.
  * 网络图片加载例子
  */
 public class NetworkImageHolderView implements Holder<String> {

@@ -8,7 +8,6 @@ import com.android.lily.R;
 import com.bigkoo.convenientbanner.holder.Holder;
 
 /**
- * Created by Sai on 15/8/4.
  * 网络图片加载例子
  */
 public class StackHolderView implements Holder<String> {

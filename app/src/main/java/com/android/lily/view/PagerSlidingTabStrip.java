@@ -35,9 +35,6 @@ import java.util.Map;
 
 /****
  * Android-导航栏特效，主要是导航栏字体大小和颜色的渐变特效
- *
- * @author guxiuzhong
- *         Email :gfj19900401@163.com
  */
 public class PagerSlidingTabStrip extends HorizontalScrollView {
 

@@ -6,15 +6,6 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 
-/**
- * ================================================
- * 作    者：顾修忠-guxiuzhong@youku.com/gfj19900401@163.com
- * 版    本：
- * 创建日期：16/8/24-上午11:46
- * 描    述：PagerSlidingTabStrip title单击喝双击处理辅助类
- * 修订历史：
- * ================================================
- */
 public class TitleView extends FrameLayout {
 
     private GestureDetector gestureDetector;
