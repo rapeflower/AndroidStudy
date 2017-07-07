@@ -33,6 +33,7 @@
         android:layout_width="@dimen/dimen_480px"
         android:layout_height="@dimen/dimen_170px"
         android:layout_margin="@dimen/activity_horizontal_margin"
+        android:scaleType="centerCrop"
         android:src="@drawable/ym"
         app:borderRadius="@dimen/dimen_10px"
         app:type="round"/>
