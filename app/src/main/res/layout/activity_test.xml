@@ -17,8 +17,7 @@
         android:layout_width="240dp"
         android:layout_height="85dp"
         android:layout_margin="@dimen/activity_horizontal_margin"
-        android:src="@drawable/test_round"
-        android:scaleType="fitXY" />
+        android:src="@drawable/test_round" />
 
     <ImageView
         android:id="@+id/iv_img"
