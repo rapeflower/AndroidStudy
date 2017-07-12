@@ -11,13 +11,14 @@
         android:layout_margin="@dimen/activity_horizontal_margin"
         android:src="@drawable/test_round"
         android:background="@color/colorAccent"
-        android:scaleType="fitCenter"/>
+        android:scaleType="centerCrop"/>
 
     <com.android.lily.view.RoundImageView
         android:layout_width="240dp"
         android:layout_height="85dp"
         android:layout_margin="@dimen/activity_horizontal_margin"
-        android:src="@drawable/test_round" />
+        android:src="@drawable/test_round"
+        android:scaleType="centerCrop" />
 
     <ImageView
         android:id="@+id/iv_img"
@@ -31,6 +32,8 @@
         android:id="@+id/riv_xf_img"
         android:layout_width="@dimen/dimen_480px"
         android:layout_height="@dimen/dimen_170px"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:scaleType="centerCrop"
         android:src="@drawable/ym"
         app:borderRadius="@dimen/dimen_10px"
         app:type="round"/>
@@ -39,5 +42,5 @@
         android:id="@+id/j1ImageView"
         android:layout_width="@dimen/dimen_480px"
         android:layout_height="@dimen/dimen_170px"
-        android:layout_marginTop="@dimen/dimen_10px" />
+        android:layout_margin="@dimen/activity_horizontal_margin" />
 </LinearLayout>
