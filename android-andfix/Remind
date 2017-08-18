@@ -1,0 +1,18 @@
+windows执行andfix生成差异文件的apkpatch命令：
+apkpatch.bat -f andfix_v2.0.0.apk -t andfix_v1.0.0.apk -o patch_output -k j1_wireless.keystore -p j1@20140815 -a j1 doctor -e jianyiwang
+
+mac os执行andfix生成差异文件的apkpatch命令：
+sh apkpatch.sh -f andfix_v2.0.0.apk -t andfix_v1.0.0.apk -o patch_output -k j1_wireless.keystore -p j1@20140815 -a j1 doctor -e jianyiwang
+
+注意：
+apkpatch.bat -f andfix_v2.0.0.apk -t andfix_v1.0.0.apk -o patch_output -k j1_wireless.keystore -p j1@20140815 -a j1\ doctor -e jianyiwang
+
+apkpatch.bat -f 新apk -t 旧apk -o 输出目录 -k app签名文件 -p 签名文件密码 -a 签名文件别名 -e 别名密码
+
+-f <new.apk> ：新apk
+-t <old.apk> : 旧apk
+-o <output> ： 输出目录（补丁文件的存放目录）
+-k <keystore>： 打包所用的keystore
+-p <password>： keystore的密码
+-a <alias>： keystore 用户别名
+-e <alias password>： keystore 用户别名密码
