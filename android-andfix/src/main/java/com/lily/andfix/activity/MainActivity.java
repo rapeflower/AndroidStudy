@@ -40,6 +40,6 @@ public class MainActivity extends Activity {
     }
 
     private void setText() {
-        tvHotFix.setText("AndFix应用 1.0.0(打补丁前)");
+        tvHotFix.setText("AndFix应用 2.0.0(打补丁后)");
     }
 }

@@ -24,6 +24,9 @@
         <activity android:name=".activity.SlidingTabBarActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.DefaultPicActivity" />
+        <activity android:name=".activity.AbroadBoutiqueTestActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

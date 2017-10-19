@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.android.lily.view.boutiquemuseum.BoutiqueMuseumTabView
+        android:id="@+id/bmt_boutique_museum"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_152px"
+        android:layout_marginLeft="@dimen/dimen_20px"
+        android:layout_marginTop="@dimen/dimen_36px"
+        android:layout_marginBottom="@dimen/dimen_32px" />
+</LinearLayout>

@@ -27,7 +27,7 @@ public class MainActivity extends ListActivity
 		getListView().setAdapter(
 				new ArrayAdapter<String>(this,
 						android.R.layout.simple_list_item_1, new String[] {
-								"圆形菜单1", "圆形菜单2", "测试", "RoundView", "默认图适配"}));
+								"圆形菜单1", "圆形菜单2", "测试", "RoundView", "默认图适配", "Icon滑动tab"}));
 
 	}
 
@@ -43,6 +43,8 @@ public class MainActivity extends ListActivity
 			intent = new Intent(this, TestActivity.class);
 		} else if (position == 4) {
 			intent = new Intent(this, DefaultPicActivity.class);
+		} else if (position == 5) {
+			intent = new Intent(this, AbroadBoutiqueTestActivity.class);
 		} else {
 			intent = new Intent(this, CircleActivity.class);
 		}

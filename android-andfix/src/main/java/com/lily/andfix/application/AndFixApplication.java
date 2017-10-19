@@ -41,9 +41,10 @@ public class AndFixApplication extends Application{
 
         //当apk版本升级，需要把之前patch文件的删除，需要以下操作
         boolean isAPPVersionUpgrade = false;
+        //删除所有已加载的patch文件
+        patchManager.removeAllPatch();
         if (isAPPVersionUpgrade) {
-            //删除所有已加载的patch文件
-            patchManager.removeAllPatch();
+            return;
         } else {
             downloadPatchFile("http://svn.j1.net/%E4%BA%A7%E5%93%81%E8%AE%BE%E8%AE%A1%E9%83%A8%E6%96%87%E6%A1%A3/APP%E5%95%86%E5%9F%8E/app-3.8/android-hot-fix/" + PATCH_FILE_NAME);
         }
