@@ -60,7 +60,7 @@ public class SuperAwesomeCardFragment extends Fragment {
 				.getDisplayMetrics());
 
 		TextView v = new TextView(getActivity());
-		params.setMargins(margin, margin, margin, margin);
+		params.setMargins(margin, 0, margin, 0);
 		v.setLayoutParams(params);
 		v.setLayoutParams(params);
 		v.setGravity(Gravity.CENTER);

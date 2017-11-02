@@ -5,11 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.android.lily.view.boutiquemuseum.BoutiqueMuseumTabView
-        android:id="@+id/bmt_boutique_museum"
+    <!--<com.android.lily.view.boutiquemuseum.BoutiqueMuseumTabView-->
+        <!--android:id="@+id/bmt_boutique_museum"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/dimen_152px"-->
+        <!--android:layout_marginLeft="@dimen/dimen_20px"-->
+        <!--android:layout_marginTop="@dimen/dimen_36px"-->
+        <!--android:layout_marginBottom="@dimen/dimen_32px" />-->
+
+    <com.android.lily.view.boutiquemuseum.BoutiqueMuseumTabBar
+        android:id="@+id/bmt_tab"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_152px"
-        android:layout_marginLeft="@dimen/dimen_20px"
-        android:layout_marginTop="@dimen/dimen_36px"
-        android:layout_marginBottom="@dimen/dimen_32px" />
+        android:layout_height="match_parent" />
 </LinearLayout>

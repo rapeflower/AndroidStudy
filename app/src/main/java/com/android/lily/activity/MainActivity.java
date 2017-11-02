@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.android.lily.R;
+import com.android.lily.colortrackview.ViewPagerUseActivity;
 
 /**
  * <pre>
@@ -27,7 +28,7 @@ public class MainActivity extends ListActivity
 		getListView().setAdapter(
 				new ArrayAdapter<String>(this,
 						android.R.layout.simple_list_item_1, new String[] {
-								"圆形菜单1", "圆形菜单2", "测试", "RoundView", "默认图适配", "Icon滑动tab"}));
+								"圆形菜单1", "圆形菜单2", "测试", "RoundView", "默认图适配", "Icon滑动tab", "Color Track ViewPager"}));
 
 	}
 
@@ -45,6 +46,8 @@ public class MainActivity extends ListActivity
 			intent = new Intent(this, DefaultPicActivity.class);
 		} else if (position == 5) {
 			intent = new Intent(this, AbroadBoutiqueTestActivity.class);
+		}  else if (position == 6) {
+			intent = new Intent(this, ViewPagerUseActivity.class);
 		} else {
 			intent = new Intent(this, CircleActivity.class);
 		}

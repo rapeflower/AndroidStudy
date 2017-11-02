@@ -1,12 +1,12 @@
 package com.android.lily.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.support.v4.app.FragmentActivity;
 
 import com.android.lily.R;
+import com.android.lily.fragment.SuperAwesomeCardFragment;
 import com.android.lily.view.boutiquemuseum.BoutiqueMuseumItem;
-import com.android.lily.view.boutiquemuseum.BoutiqueMuseumTabView;
+import com.android.lily.view.boutiquemuseum.BoutiqueMuseumTabBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,28 +14,20 @@ import java.util.List;
 /**
  * Created by lilei on 17/10/17.
  */
-public class AbroadBoutiqueTestActivity extends Activity {
+public class AbroadBoutiqueTestActivity extends FragmentActivity {
 
-    private BoutiqueMuseumTabView bmtBoutiqueMuseum;
+    private BoutiqueMuseumTabBar bmtTab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abroad_boutique_museum);
 
-        bmtBoutiqueMuseum = (BoutiqueMuseumTabView) findViewById(R.id.bmt_boutique_museum);
-        bmtBoutiqueMuseum.setTabPaddingLeftRight(12);
-
         final List<BoutiqueMuseumItem> data = getBmtData();
-        bmtBoutiqueMuseum.setDataSource(data);
-        //精品馆
-        bmtBoutiqueMuseum.notifyDataSetChanged();
-        bmtBoutiqueMuseum.setOnSelectBoutiqueMuseumListener(new BoutiqueMuseumTabView.OnSelectBoutiqueMuseumListener() {
-            @Override
-            public void onSelect(int position) {
-                Toast.makeText(AbroadBoutiqueTestActivity.this, data.get(position).getName(), Toast.LENGTH_SHORT).show();
-            }
-        });
+
+        bmtTab = (BoutiqueMuseumTabBar) findViewById(R.id.bmt_tab);
+        bmtTab.setFragmentManager(getSupportFragmentManager());
+        bmtTab.setAdapter(data);
     }
 
     /**
@@ -46,10 +38,11 @@ public class AbroadBoutiqueTestActivity extends Activity {
     private List<BoutiqueMuseumItem> getBmtData() {
         List<BoutiqueMuseumItem> list = new ArrayList<BoutiqueMuseumItem>();
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 6; i++) {
             BoutiqueMuseumItem bmt1 = new BoutiqueMuseumItem();
-            bmt1.setName("德国馆" + i);
-            bmt1.setDrawIndicatorLine(false);
+            bmt1.name = "德国馆" + i;
+            bmt1.image = "https://img01.j1.com/upload/pic/homepage/1494300131640.jpg";
+            bmt1.fragment = SuperAwesomeCardFragment.newInstance(i);
             list.add(bmt1);
         }
 

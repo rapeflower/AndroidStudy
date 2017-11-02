@@ -69,6 +69,13 @@
    layout过程
    draw过程
 11.
-
+    double base_scale = Math.round(mScale * 100) * 0.01d;
+    if (base_scale == 1) {
+        ViewHelper.setAlpha(tv_name, 1.0f);
+        tv_name.setTextColor(tabTextColor);
+    } else {
+        ViewHelper.setAlpha(tv_name, positionOffset * 1.0f);
+    }
+12.
 
 
