@@ -51,6 +51,7 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
     //布局参数
     private LinearLayout.LayoutParams defaultTabLayoutParamsOne;
     private LinearLayout.LayoutParams defaultTabLayoutParamsTwo;
+    private LinearLayout.LayoutParams defaultTabLayoutParamsThree;
     private LinearLayout.LayoutParams expandedTabLayoutParams;
     private LinearLayout tabsContainer;
     private ViewPager pager;
@@ -67,8 +68,7 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
 
     private int scrollOffset = 52;
     private int indicatorHeight = 1;
-    private int tabPadding = 20;
-    private int tabMarginLeft = 0;
+    private int tabMargin = 0;
 
     private int tabTextSize = 12;
     //Color.parseColor("#2b2b2b")
@@ -114,14 +114,13 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
         mContext = context;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         dataList = new ArrayList<BoutiqueMuseumItem>();
-        tabMarginLeft = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_20px);
+        tabMargin = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_20px);
         setFillViewport(true);
         setWillNotDraw(false);//防止onDraw方法不执行
 
         tabsContainer = new LinearLayout(context);
         tabsContainer.setOrientation(LinearLayout.HORIZONTAL);
         FrameLayout.LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-        lp.setMargins(tabMarginLeft, 0 , 0, 0);
         tabsContainer.setLayoutParams(lp);
         addView(tabsContainer);
 
@@ -129,7 +128,6 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
         DisplayMetrics dm = getResources().getDisplayMetrics();
         scrollOffset = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, scrollOffset, dm);
         indicatorHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, indicatorHeight, dm);
-        tabPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, tabPadding, dm);
         tabTextSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, tabTextSize, dm);
 
         //获取系统属性 (android:textSize and android:textColor)
@@ -145,9 +143,12 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
         int w = getDisplayWidth(context) / 9 * 2;
         defaultTabLayoutParamsOne = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         defaultTabLayoutParamsOne.width = w;
+        defaultTabLayoutParamsOne.leftMargin = tabMargin;
         defaultTabLayoutParamsTwo = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         defaultTabLayoutParamsTwo.width = w;
-        defaultTabLayoutParamsTwo.rightMargin = tabMarginLeft * 2;
+        defaultTabLayoutParamsThree = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+        defaultTabLayoutParamsThree.width = w;
+        defaultTabLayoutParamsThree.rightMargin = tabMargin;
 
         expandedTabLayoutParams = new LinearLayout.LayoutParams(0, LayoutParams.MATCH_PARENT, 1.0f);
 
@@ -309,10 +310,12 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
 
         J1ImageView ivBMImg = (J1ImageView) tabItem.findViewById(R.id.iv_boutique_museum_img);
         showImage(ivBMImg, url);
-        if (position == (tabCount - 1)) {
-            tabsContainer.addView(tabItem, position, shouldExpand ? expandedTabLayoutParams : defaultTabLayoutParamsTwo);
-        } else {
+        if (position == 0) {
             tabsContainer.addView(tabItem, position, shouldExpand ? expandedTabLayoutParams : defaultTabLayoutParamsOne);
+        } else if (position == (tabCount - 1)) {
+            tabsContainer.addView(tabItem, position, shouldExpand ? expandedTabLayoutParams : defaultTabLayoutParamsThree);
+        } else {
+            tabsContainer.addView(tabItem, position, shouldExpand ? expandedTabLayoutParams : defaultTabLayoutParamsTwo);
         }
 
         tabItem.setOnClickListener(new PreventTooFastClickListener() {
@@ -461,9 +464,9 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
 
         //线型
         if (indicatorShape == SHAPE_LINE) {
-            float left = lineLeft + textWidth / 4 + tabMarginLeft;
+            float left = lineLeft + textWidth / 4;
             float top = height - indicatorHeight;
-            float right = lineRight - textWidth / 4 + tabMarginLeft;
+            float right = lineRight - textWidth / 4;
             float bottom = height;
             canvas.drawRect(left, top, right, bottom, indicatorPaint);
         } else {
@@ -504,12 +507,12 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
         this.selectedTabTextColor = textColor;
     }
 
-    public void setTabPaddingLeftRight(int paddingDp) {
-        this.tabPadding = (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP, paddingDp, getResources().getDisplayMetrics());
-    }
     public void setIndicatorShape(int shape) {
         this.indicatorShape = shape;
+    }
+
+    public void setTabMargin(int dmResId) {
+        this.tabMargin = mContext.getResources().getDimensionPixelOffset(dmResId);
     }
 
     private boolean isSmall(float positionOffset) {
