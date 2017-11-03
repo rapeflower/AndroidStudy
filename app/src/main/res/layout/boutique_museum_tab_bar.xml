@@ -6,9 +6,7 @@
     <com.android.lily.view.boutiquemuseum.BoutiqueMuseumTab
         android:id="@+id/bmt_boutique_museum"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dimen_20px"
-        android:layout_marginBottom="@dimen/dimen_32px"/>
+        android:layout_height="wrap_content" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_pager"

@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.view.ViewPager;
+import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -48,7 +49,8 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
     };
 
     //布局参数
-    private LinearLayout.LayoutParams defaultTabLayoutParams;
+    private LinearLayout.LayoutParams defaultTabLayoutParamsOne;
+    private LinearLayout.LayoutParams defaultTabLayoutParamsTwo;
     private LinearLayout.LayoutParams expandedTabLayoutParams;
     private LinearLayout tabsContainer;
     private ViewPager pager;
@@ -66,6 +68,7 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
     private int scrollOffset = 52;
     private int indicatorHeight = 1;
     private int tabPadding = 20;
+    private int tabMarginLeft = 0;
 
     private int tabTextSize = 12;
     //Color.parseColor("#2b2b2b")
@@ -111,12 +114,14 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
         mContext = context;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         dataList = new ArrayList<BoutiqueMuseumItem>();
+        tabMarginLeft = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_20px);
         setFillViewport(true);
         setWillNotDraw(false);//防止onDraw方法不执行
 
         tabsContainer = new LinearLayout(context);
         tabsContainer.setOrientation(LinearLayout.HORIZONTAL);
         FrameLayout.LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        lp.setMargins(tabMarginLeft, 0 , 0, 0);
         tabsContainer.setLayoutParams(lp);
         addView(tabsContainer);
 
@@ -137,9 +142,12 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
         indicatorPaint.setAntiAlias(true);
         indicatorPaint.setStyle(Paint.Style.FILL);
 
-        defaultTabLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         int w = getDisplayWidth(context) / 9 * 2;
-        defaultTabLayoutParams.width = w;
+        defaultTabLayoutParamsOne = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+        defaultTabLayoutParamsOne.width = w;
+        defaultTabLayoutParamsTwo = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+        defaultTabLayoutParamsTwo.width = w;
+        defaultTabLayoutParamsTwo.rightMargin = tabMarginLeft * 2;
 
         expandedTabLayoutParams = new LinearLayout.LayoutParams(0, LayoutParams.MATCH_PARENT, 1.0f);
 
@@ -301,7 +309,11 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
 
         J1ImageView ivBMImg = (J1ImageView) tabItem.findViewById(R.id.iv_boutique_museum_img);
         showImage(ivBMImg, url);
-        tabsContainer.addView(tabItem, position, shouldExpand ? expandedTabLayoutParams : defaultTabLayoutParams);
+        if (position == (tabCount - 1)) {
+            tabsContainer.addView(tabItem, position, shouldExpand ? expandedTabLayoutParams : defaultTabLayoutParamsTwo);
+        } else {
+            tabsContainer.addView(tabItem, position, shouldExpand ? expandedTabLayoutParams : defaultTabLayoutParamsOne);
+        }
 
         tabItem.setOnClickListener(new PreventTooFastClickListener() {
             @Override
@@ -431,6 +443,10 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
         View currentTab = tabsContainer.getChildAt(currentPosition);
         float lineLeft = currentTab.getLeft();
         float lineRight = currentTab.getRight();
+        //获取文字的宽度
+        TextView tv = (TextView) currentTab.findViewById(R.id.tv_boutique_museum_name);
+        TextPaint textPaint = tv.getPaint();
+        float textWidth = textPaint.measureText(tv.getText().toString());
 
         // 如果有偏移，开始在当前和下一个选项卡之间插入左、右坐标
         if (currentPositionOffset > 0f && currentPosition < tabCount - 1) {
@@ -445,9 +461,9 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
 
         //线型
         if (indicatorShape == SHAPE_LINE) {
-            float left = lineLeft + tabPadding;
+            float left = lineLeft + textWidth / 4 + tabMarginLeft;
             float top = height - indicatorHeight;
-            float right = lineRight - tabPadding;
+            float right = lineRight - textWidth / 4 + tabMarginLeft;
             float bottom = height;
             canvas.drawRect(left, top, right, bottom, indicatorPaint);
         } else {
