@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.alipay.euler:andfix-0.5.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/android-andfix/build/intermediates/exploded-aar/com.alipay.euler/andfix/0.5.0/jars/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/android-andfix/build/intermediates/exploded-aar/com.alipay.euler/andfix/0.5.0/res" />
+      <root url="jar://$PROJECT_DIR$/android-andfix/build/intermediates/exploded-aar/com.alipay.euler/andfix/0.5.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

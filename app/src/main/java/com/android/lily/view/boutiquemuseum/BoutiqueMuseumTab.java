@@ -15,6 +15,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -115,7 +116,8 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
 
         tabsContainer = new LinearLayout(context);
         tabsContainer.setOrientation(LinearLayout.HORIZONTAL);
-        tabsContainer.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        FrameLayout.LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        tabsContainer.setLayoutParams(lp);
         addView(tabsContainer);
 
         //设置默认值
@@ -138,7 +140,7 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
         defaultTabLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         int w = getDisplayWidth(context) / 9 * 2;
         defaultTabLayoutParams.width = w;
-//        defaultTabLayoutParams.width = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_140px);
+
         expandedTabLayoutParams = new LinearLayout.LayoutParams(0, LayoutParams.MATCH_PARENT, 1.0f);
 
         if (locale == null) {
@@ -377,7 +379,7 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
     }
 
     private void showImage(ImageView iv, String url) {
-        int radius = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_6px);
+        int radius = mContext.getResources().getDimensionPixelOffset(R.dimen.dimen_10px);
         Glide.with(mContext)
                 .load(url)
                 .bitmapTransform(new RoundedCornersTransformation(mContext, radius, 0,

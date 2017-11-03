@@ -8,7 +8,9 @@
         android:id="@+id/iv_boutique_museum_img"
         android:layout_width="@dimen/dimen_120px"
         android:layout_height="@dimen/dimen_90px"
-        android:layout_gravity="center_horizontal" />
+        android:scaleType="fitXY"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dimen_36px"/>
 
     <TextView
         android:id="@+id/tv_boutique_museum_name"
