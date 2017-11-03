@@ -30,6 +30,9 @@
         <activity android:name=".colortrackview.ViewPagerUseActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
+        <activity android:name=".nestedscrollview.NestedScrollActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
