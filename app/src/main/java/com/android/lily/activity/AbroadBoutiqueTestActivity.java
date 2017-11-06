@@ -40,7 +40,11 @@ public class AbroadBoutiqueTestActivity extends FragmentActivity {
 
         for (int i = 0; i < 6; i++) {
             BoutiqueMuseumItem bmt1 = new BoutiqueMuseumItem();
-            bmt1.name = "德国馆" + i;
+            if (i == 1) {
+                bmt1.name = "新西兰馆";
+            } else {
+                bmt1.name = "德国馆" + i;
+            }
             bmt1.image = "https://img01.j1.com/upload/goods/338-338/1500/1500_0.jpg";
             bmt1.fragment = SuperAwesomeCardFragment.newInstance(i);
             list.add(bmt1);

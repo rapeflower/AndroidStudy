@@ -447,9 +447,9 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
         float lineLeft = currentTab.getLeft();
         float lineRight = currentTab.getRight();
         //获取文字的宽度
-        TextView tv = (TextView) currentTab.findViewById(R.id.tv_boutique_museum_name);
-        TextPaint textPaint = tv.getPaint();
-        float textWidth = textPaint.measureText(tv.getText().toString());
+        //TextView tv = (TextView) currentTab.findViewById(R.id.tv_boutique_museum_name);
+        //TextPaint textPaint = tv.getPaint();
+        //float textWidth = textPaint.measureText(tv.getText().toString());
 
         // 如果有偏移，开始在当前和下一个选项卡之间插入左、右坐标
         if (currentPositionOffset > 0f && currentPosition < tabCount - 1) {
@@ -462,11 +462,16 @@ public class BoutiqueMuseumTab extends HorizontalScrollView{
             lineRight = (currentPositionOffset * nextTabRight + (1f - currentPositionOffset) * lineRight);
         }
 
+        //根据计算出的字体宽度算出指示器线条的左右边界坐标
+        //float origin = lineRight - lineLeft;
+        //float fraction = (1 - textWidth / origin) / 2;
+        //float offset = origin * fraction;
+
         //线型
         if (indicatorShape == SHAPE_LINE) {
-            float left = lineLeft + textWidth / 4;
+            float left = lineLeft + tabMargin;
             float top = height - indicatorHeight;
-            float right = lineRight - textWidth / 4;
+            float right = lineRight - tabMargin;
             float bottom = height;
             canvas.drawRect(left, top, right, bottom, indicatorPaint);
         } else {
