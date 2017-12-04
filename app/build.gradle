@@ -30,4 +30,5 @@ dependencies {
     compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
     compile 'com.bigkoo:convenientbanner:2.0.5'
     compile files('libs/universal-image-loader-1.9.4.jar')
+    compile 'com.google.code.gson:gson:2.8.2'
 }

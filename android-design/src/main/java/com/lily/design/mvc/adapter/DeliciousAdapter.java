@@ -58,6 +58,7 @@ public class DeliciousAdapter extends BaseAdapter{
             holder = new DeliciousHolder();
             convertView = inflater.inflate(R.layout.item_delicious, parent, false);
             holder.tvName = (TextView) convertView.findViewById(R.id.tv_delicious_name);
+            holder.viewBottom = convertView.findViewById(R.id.view_bottom);
             convertView.setTag(holder);
         } else {
             holder = (DeliciousHolder) convertView.getTag();
@@ -66,10 +67,19 @@ public class DeliciousAdapter extends BaseAdapter{
         DeliciousBean delicious = deliciousList.get(position);
         holder.tvName.setText(delicious.name);
 
+        final DeliciousHolder finalHolder = holder;
+        holder.tvName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finalHolder.viewBottom.setVisibility(View.VISIBLE);
+            }
+        });
+
         return convertView;
     }
 
     private class DeliciousHolder {
         public TextView tvName;
+        public View viewBottom;
     }
 }

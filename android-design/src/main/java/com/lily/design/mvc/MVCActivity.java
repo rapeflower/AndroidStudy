@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.lily.design.R;
 import com.lily.design.mvc.adapter.DeliciousAdapter;
+import com.lily.design.mvc.adapter.TestAbAdapter;
 import com.lily.design.mvc.bean.DeliciousBean;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class MVCActivity extends Activity{
     private ListView lv;
 
     private DeliciousAdapter adapter;
+    private TestAbAdapter abAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,10 @@ public class MVCActivity extends Activity{
         lv = (ListView) findViewById(R.id.lv_mvc_delicious);
         adapter = new DeliciousAdapter(MVCActivity.this);
         adapter.setDeliciousList(getDeliciousData());
-        lv.setAdapter(adapter);
 
+        abAdapter = new TestAbAdapter(MVCActivity.this, getDeliciousData());
+
+        lv.setAdapter(abAdapter);
         iniListener();
     }
 
