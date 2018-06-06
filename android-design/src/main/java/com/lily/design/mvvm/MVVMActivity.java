@@ -38,7 +38,7 @@ public class MVVMActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
             FoodAdapter<FoodBean> adapter = new FoodAdapter<>(MVVMActivity.this,
-                    R.layout.item_food, foods, com.lily.design.BR.food);//com.lily.design.mvvm.bean.BR.food
+                    R.layout.item_food, foods, -1);//com.lily.design.BR.food
             lv.setAdapter(adapter);
         }
     };

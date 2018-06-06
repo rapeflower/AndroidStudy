@@ -49,7 +49,7 @@ public class FoodBean extends BaseObservable{
 
     public void setDescription(String description) {
         this.description = description;
-        notifyPropertyChanged(com.lily.design.BR.description);
+//        notifyPropertyChanged(com.lily.design.BR.description);
     }
 
     public String getImg() {
