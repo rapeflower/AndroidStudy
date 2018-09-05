@@ -24,7 +24,7 @@ public class SortTest {
         printArray(numbers3);
 
         int[] numbers4 = {520, 3, 8, 22, 76, 21, -10, 66, -100, 99};
-        selectSort(numbers4);
+        insertSort(numbers4);
         System.out.print("插入排序：");
         printArray(numbers4);
     }
