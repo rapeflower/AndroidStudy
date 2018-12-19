@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 26
+    buildToolsVersion "28.0.2"
 
     defaultConfig {
         applicationId "com.android.lily"
         minSdkVersion 14
-        targetSdkVersion 21
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -20,15 +20,16 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:support-v4:+'
-    compile files('libs/library_nineoldandroids.jar')
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'jp.wasabeef:glide-transformations:2.0.2'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation files('libs/library_nineoldandroids.jar')
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'jp.wasabeef:glide-transformations:2.0.2'
     // If you want to use the GPU Filters
-    compile 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
-    compile 'com.bigkoo:convenientbanner:2.0.5'
-    compile files('libs/universal-image-loader-1.9.4.jar')
-    compile 'com.google.code.gson:gson:2.8.2'
+    implementation 'jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1'
+    implementation 'com.bigkoo:convenientbanner:2.0.5'
+    implementation files('libs/universal-image-loader-1.9.4.jar')
+    implementation 'com.google.code.gson:gson:2.8.2'
 }

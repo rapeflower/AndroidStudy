@@ -4,8 +4,9 @@ android {
     compileSdkVersion 26
     buildToolsVersion "28.0.2"
 
+
     defaultConfig {
-        applicationId "com.lily.andfix"
+        applicationId "android.lily.guide"
         minSdkVersion 14
         targetSdkVersion 26
         versionCode 1
@@ -14,20 +15,22 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    // compile 'com.android.support:appcompat-v7:24.2.1'，用这个maven方式配置v7会自动引入v4库，所以不需要再额外引入v4库了。
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testImplementation 'junit:junit:4.12'
-    implementation 'com.loopj.android:android-async-http:1.4.9'
-    implementation 'com.alipay.euler:andfix:0.5.0@aar'
+
 }

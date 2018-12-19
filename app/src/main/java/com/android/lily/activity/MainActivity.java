@@ -4,7 +4,6 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.view.NestedScrollingParentHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;

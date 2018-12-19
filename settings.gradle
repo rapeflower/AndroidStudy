@@ -1,1 +1,1 @@
-include ':app', ':android-design', ':android-andfix'
+include ':app', ':android-design', ':android-andfix', ':guide'
