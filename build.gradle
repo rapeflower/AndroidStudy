@@ -16,6 +16,19 @@ buildscript {
     }
 }
 
+ext {
+    android = [
+            compileSdkVersion: 26,
+            buildToolsVersion: "28.0.2",
+            minSdkVersion: 14,
+            targetSdkVersion: 26,
+    ]
+
+    dependencies = [
+            v4: 'com.android.support:support-v4:26.1.0',
+    ]
+}
+
 allprojects {
     repositories {
         jcenter()
