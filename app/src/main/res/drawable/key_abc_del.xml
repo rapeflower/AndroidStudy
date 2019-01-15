@@ -4,11 +4,12 @@
         <shape>
             <corners android:radius="@dimen/dimen_10px" />
             <solid android:color="@android:color/white" />
-            <padding android:top="@dimen/dimen_20px"
-                android:bottom="@dimen/dimen_20px"
-                android:left="@dimen/dimen_36px"
-                android:right="@dimen/dimen_36px"/>
         </shape>
     </item>
-    <item android:drawable="@drawable/ic_abc_del"/>
+    <item
+        android:top="@dimen/dimen_20px"
+        android:bottom="@dimen/dimen_20px"
+        android:left="@dimen/dimen_36px"
+        android:right="@dimen/dimen_36px"
+        android:drawable="@drawable/ic_abc_del"/>
 </layer-list>
