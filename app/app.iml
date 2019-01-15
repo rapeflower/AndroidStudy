@@ -123,6 +123,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:support-fragment-26.1.0" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:common:1.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7-21.0.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7-25.3.1" level="project" />
     <orderEntry type="library" name="Gradle: jp.wasabeef:glide-transformations-2.0.2" level="project" />
     <orderEntry type="library" name="Gradle: com.github.bumptech.glide:glide:3.7.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-media-compat-26.1.0" level="project" />

@@ -30,7 +30,7 @@ public class MainActivity extends ListActivity
 				new ArrayAdapter<String>(this,
 						android.R.layout.simple_list_item_1, new String[] {
 						"圆形菜单1", "圆形菜单2", "测试", "RoundView", "默认图适配", "Icon滑动tab",
-						"Color Track ViewPager", "Nested Scroll"}));
+						"Color Track ViewPager", "Nested Scroll", "Keyboard"}));
 
 	}
 
@@ -52,6 +52,8 @@ public class MainActivity extends ListActivity
 			intent = new Intent(this, ViewPagerUseActivity.class);
 		} else if (position == 7) {
 			intent = new Intent(this, NestedScrollActivity.class);
+		} else if (position == 8) {
+			intent = new Intent(this, KeyboardActivity.class);
 		} else {
 			intent = new Intent(this, CircleActivity.class);
 		}

@@ -5,4 +5,7 @@
     <item name="id_circle_menu_item_text" type="id"/>
     <item name="id_circle_menu_item_center" type="id"/>
 
+    <item name="anchor_view" type="id"/>
+    <item name="scroll_height_by_keyboard" type="id"/>
+    <item name="bind_keyboard_2_editor" type="id"/>
 </resources>

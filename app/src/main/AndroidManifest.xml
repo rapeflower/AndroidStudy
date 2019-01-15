@@ -18,21 +18,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.CCBActivity"/>
+        <activity android:name=".activity.CCBActivity" />
         <activity android:name=".activity.CircleActivity" />
         <activity android:name=".activity.TabActivity" />
         <activity android:name=".activity.SlidingTabBarActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.DefaultPicActivity" />
-        <activity android:name=".activity.AbroadBoutiqueTestActivity"
+        <activity
+            android:name=".activity.AbroadBoutiqueTestActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".colortrackview.ViewPagerUseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".colortrackview.ViewPagerUseActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".nestedscrollview.NestedScrollActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".nestedscrollview.NestedScrollActivity"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/keyboard_abc" />
+        <activity android:name=".activity.KeyboardActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
