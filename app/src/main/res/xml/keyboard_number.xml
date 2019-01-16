@@ -17,12 +17,12 @@
         <Key android:codes="54" android:keyLabel="6" />
         <Key android:codes="@integer/action_done" android:keyLabel="@string/confirm" android:iconPreview="@drawable/key_num_done_bg" android:keyHeight="148dp" />
     </Row>
-    <Row android:horizontalGap="1px">
+    <Row>
         <Key android:codes="55" android:keyEdgeFlags="left" android:keyLabel="7" />
         <Key android:codes="56" android:keyLabel="8" />
         <Key android:codes="57" android:keyLabel="9" />
     </Row>
-    <Row android:horizontalGap="1px">
+    <Row>
         <Key android:keyWidth="49.9%p" android:codes="48" android:keyEdgeFlags="left" android:keyLabel="0" />
         <Key android:codes="46" android:keyLabel="." />
     </Row>
