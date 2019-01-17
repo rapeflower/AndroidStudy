@@ -13,6 +13,10 @@ gradle-app.setting
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
 *.iml
+AndroidStudy.iml
+android-andfix/android-andfix.iml
+android-design/android-design.iml
+.DS_Store
 .gradle/
 build/
 local.properties

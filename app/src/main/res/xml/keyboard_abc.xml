@@ -38,6 +38,6 @@
         <Key android:codes="110" android:keyLabel="n" />
         <Key android:codes="109" android:keyLabel="m" />
         <Key android:codes="-5" android:keyWidth="17.8%p" android:keyEdgeFlags="right" android:isRepeatable="true"
-            android:iconPreview="@drawable/key_abc_del_bg"/>
+            android:keyIcon="@drawable/key_abc_del_ic"/>
     </Row>
 </Keyboard>

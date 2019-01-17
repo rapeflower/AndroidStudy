@@ -9,7 +9,7 @@
         <Key android:codes="49" android:keyEdgeFlags="left" android:keyLabel="1" />
         <Key android:codes="50" android:keyLabel="2" />
         <Key android:codes="51" android:keyLabel="3" />
-        <Key android:codes="-5" android:iconPreview="@drawable/key_num_del_bg" android:isRepeatable="true" />
+        <Key android:codes="-5" android:keyIcon="@drawable/key_num_del_ic" android:isRepeatable="true" />
     </Row>
     <Row>
         <Key android:codes="52" android:keyEdgeFlags="left" android:keyLabel="4" />
