@@ -38,7 +38,7 @@ public class UserModel implements IUserModel{
     }
 
     @Override
-    public void regig() {
+    public void register() {
 
     }
 }

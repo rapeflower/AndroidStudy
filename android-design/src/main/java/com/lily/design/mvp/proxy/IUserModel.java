@@ -7,5 +7,5 @@ package com.lily.design.mvp.proxy;
  */
 public interface IUserModel {
     public void login(String username, String password, OnLoginListener loginListener);
-    public void regig();
+    public void register();
 }
