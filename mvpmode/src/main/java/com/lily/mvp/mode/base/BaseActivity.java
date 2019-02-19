@@ -4,10 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
-import com.lily.mvp.mode.presenter.IPresenter;
 import com.lily.mvp.mode.view.IView;
 
-public abstract class BaseActivity<T extends IPresenter> extends FragmentActivity implements IView {
+public abstract class BaseActivity<T extends BasePresenter> extends FragmentActivity implements IView {
 
     protected T mPresenter;
 

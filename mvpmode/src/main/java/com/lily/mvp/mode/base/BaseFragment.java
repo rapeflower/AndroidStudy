@@ -8,10 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lily.mvp.mode.presenter.IPresenter;
 import com.lily.mvp.mode.view.IView;
 
-public abstract class BaseFragment<T extends IPresenter> extends Fragment implements IView {
+public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements IView {
 
     protected T mPresenter;
     protected View fragmentView;
