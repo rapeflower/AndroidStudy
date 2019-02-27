@@ -5,14 +5,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
 import study.lily.mvpro.core.utils.TypeBuilder;
-import study.lily.mvpro.core.view.IView;
+import study.lily.mvpro.core.view.BaseView;
 
 /**
  * @Author rape flower
  * @Date 2019-02-27 11:16
  * @Describe 将FragmentActivity作为Presenter，其它业务Activity的基类
  */
-public class BaseFragmentActivityPresenter<T extends IView> extends FragmentActivity implements IPresenter<T> {
+public class BaseFragmentActivityPresenter<T extends BaseView> extends FragmentActivity implements IPresenter<T> {
 
     protected T mView;
 

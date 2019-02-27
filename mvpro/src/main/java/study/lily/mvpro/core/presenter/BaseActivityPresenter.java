@@ -5,14 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import study.lily.mvpro.core.utils.TypeBuilder;
-import study.lily.mvpro.core.view.IView;
+import study.lily.mvpro.core.view.BaseView;
 
 /**
  * @Author rape flower
  * @Date 2019-02-27 11:10
  * @Describe 将Activity作为Presenter，其它业务Activity的基类
  */
-public class BaseActivityPresenter<T extends IView> extends Activity implements IPresenter<T> {
+public class BaseActivityPresenter<T extends BaseView> extends Activity implements IPresenter<T> {
 
     protected T mView;
 

@@ -9,14 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import study.lily.mvpro.core.utils.TypeBuilder;
-import study.lily.mvpro.core.view.IView;
+import study.lily.mvpro.core.view.BaseView;
 
 /**
  * @Author rape flower
  * @Date 2019-02-27 11:16
  * @Describe 将Fragment作为Presenter，其它业务Fragment的基类
  */
-public class BaseFragmentPresenter<T extends IView> extends Fragment implements IPresenter<T> {
+public class BaseFragmentPresenter<T extends BaseView> extends Fragment implements IPresenter<T> {
 
     protected T mView;
 

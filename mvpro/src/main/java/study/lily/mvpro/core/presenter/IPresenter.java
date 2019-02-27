@@ -2,6 +2,11 @@ package study.lily.mvpro.core.presenter;
 
 import android.os.Bundle;
 
+/**
+ * @Author rape flower
+ * @Date 2019-02-26 17:16
+ * @Describe Presenter接口
+ */
 public interface IPresenter<T> {
 
     /**
