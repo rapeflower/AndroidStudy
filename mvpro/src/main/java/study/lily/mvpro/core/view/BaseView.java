@@ -19,12 +19,12 @@ public abstract class BaseView implements IView {
     @Override
     public View buildContentView(LayoutInflater inflater, ViewGroup container) {
         mRootView = inflater.inflate(bindLayoutId(), container, false);
-        onCreateComplete();
+        inflateComplete();
         return mRootView;
     }
 
     @Override
-    public void onCreateComplete() {
+    public void inflateComplete() {
 
     }
 

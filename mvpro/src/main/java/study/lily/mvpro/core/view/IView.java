@@ -22,9 +22,9 @@ public interface IView {
     View buildContentView(LayoutInflater inflater, ViewGroup container);
 
     /**
-     * Activity的onCreate执行完后调用
+     * Activity inflate根布局文件完成后调用
      */
-    void onCreateComplete();
+    void inflateComplete();
 
     /**
      * 返回当前根布局的layout的id

@@ -48,4 +48,10 @@ public class BaseActivityPresenter<T extends BaseView> extends Activity implemen
     public void afterCreate(Bundle savedInstanceState) {
 
     }
+
+    @Override
+    protected void onDestroy() {
+        mView = null;
+        super.onDestroy();
+    }
 }

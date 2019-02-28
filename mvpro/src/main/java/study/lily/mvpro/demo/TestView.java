@@ -20,7 +20,7 @@ public class TestView extends BaseView {
     }
 
     @Override
-    public void onCreateComplete() {
+    public void inflateComplete() {
         listView = findViewById(R.id.lv);
     }
 

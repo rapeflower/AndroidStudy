@@ -16,13 +16,13 @@ public interface IPresenter<T> {
     Class<T> getClassType();
 
     /**
-     *
+     * View初始化之前
      * @param savedInstanceState
      */
     void beforeCreate(Bundle savedInstanceState);
 
     /**
-     *
+     * View初始化之后
      * @param savedInstanceState
      */
     void afterCreate(Bundle savedInstanceState);

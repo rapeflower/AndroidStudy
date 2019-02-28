@@ -48,4 +48,10 @@ public class BaseFragmentActivityPresenter<T extends BaseView> extends FragmentA
     public void afterCreate(Bundle savedInstanceState) {
 
     }
+
+    @Override
+    protected void onDestroy() {
+        mView = null;
+        super.onDestroy();
+    }
 }
