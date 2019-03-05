@@ -1,4 +1,4 @@
-package com.lily.mvp.mode.base;
+package com.lily.mvp.mode.core.base;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lily.mvp.mode.view.IView;
+import com.lily.mvp.mode.core.view.IView;
 
 public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements IView {
 

@@ -1,4 +1,4 @@
-package com.lily.mvp.mode.view;
+package com.lily.mvp.mode.core.view;
 
 /**
  * @Author rape flower

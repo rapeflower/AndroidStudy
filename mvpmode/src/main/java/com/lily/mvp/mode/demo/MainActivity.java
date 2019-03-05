@@ -1,11 +1,9 @@
-package com.lily.mvp.mode;
+package com.lily.mvp.mode.demo;
 
 import android.os.Bundle;
 
-import com.lily.mvp.mode.base.BaseActivity;
-import com.lily.mvp.mode.contract.TestContract;
-import com.lily.mvp.mode.entity.TestEntity;
-import com.lily.mvp.mode.presenter.TestPresenter;
+import com.lily.mvp.mode.R;
+import com.lily.mvp.mode.core.base.BaseActivity;
 
 public class MainActivity extends BaseActivity<TestPresenter> implements TestContract.TestView {
 

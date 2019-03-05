@@ -1,10 +1,10 @@
-package com.lily.mvp.mode.base;
+package com.lily.mvp.mode.core.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 
-import com.lily.mvp.mode.view.IView;
+import com.lily.mvp.mode.core.view.IView;
 
 public abstract class BaseActivity<T extends BasePresenter> extends FragmentActivity implements IView {
 

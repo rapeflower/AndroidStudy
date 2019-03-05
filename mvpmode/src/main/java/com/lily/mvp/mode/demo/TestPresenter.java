@@ -1,31 +1,30 @@
-package com.lily.mvp.mode.presenter;
+package com.lily.mvp.mode.demo;
 
-import com.lily.mvp.mode.base.BasePresenter;
-import com.lily.mvp.mode.contract.TestContract;
-import com.lily.mvp.mode.entity.TestEntity;
-import com.lily.mvp.mode.interfaces.Callback;
-import com.lily.mvp.mode.model.TestModel;
+import com.lily.mvp.mode.core.base.BasePresenter;
+import com.lily.mvp.mode.core.interfaces.Callback;
 
 public class TestPresenter extends BasePresenter<TestContract.TestView> implements TestContract.TPresenter {
 
+    private final ITestModel testModel;
+
     public TestPresenter() {
-        iModel = new TestModel();
+        testModel = new TestModel();
     }
 
     @Override
     public void getTestData() {
-        ((TestModel) iModel).getTest(new Callback<TestEntity, String>() {
+        testModel.getTest(new Callback<TestEntity, String>() {
             @Override
             public void onSuccess(TestEntity data) {
                 if (isAttached()) {
-                    mView.showSuccess(data);
+                    mView.testSuccess(data);
                 }
             }
 
             @Override
             public void onFailure(String error) {
                 if (isAttached()) {
-                    mView.showFailure(error);
+                    mView.testFailure(error);
                 }
             }
         });

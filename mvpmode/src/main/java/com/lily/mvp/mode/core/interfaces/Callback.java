@@ -1,4 +1,4 @@
-package com.lily.mvp.mode.interfaces;
+package com.lily.mvp.mode.core.interfaces;
 
 public interface Callback<R, E> {
 

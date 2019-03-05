@@ -1,7 +1,7 @@
-package com.lily.mvp.mode.base;
+package com.lily.mvp.mode.core.base;
 
-import com.lily.mvp.mode.presenter.IPresenter;
-import com.lily.mvp.mode.view.IView;
+import com.lily.mvp.mode.core.presenter.IPresenter;
+import com.lily.mvp.mode.core.view.IView;
 
 import java.util.ArrayList;
 import java.util.List;

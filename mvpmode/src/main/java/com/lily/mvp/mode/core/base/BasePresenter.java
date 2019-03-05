@@ -1,13 +1,11 @@
-package com.lily.mvp.mode.base;
+package com.lily.mvp.mode.core.base;
 
-import com.lily.mvp.mode.model.IModel;
-import com.lily.mvp.mode.presenter.IPresenter;
-import com.lily.mvp.mode.view.IView;
+import com.lily.mvp.mode.core.presenter.IPresenter;
+import com.lily.mvp.mode.core.view.IView;
 
 public abstract class BasePresenter<T extends IView> implements IPresenter<T> {
 
     protected T mView;
-    protected IModel iModel;
 
     @Override
     public void attachView(T view) {

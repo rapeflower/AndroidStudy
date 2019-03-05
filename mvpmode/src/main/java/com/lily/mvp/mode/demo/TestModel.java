@@ -1,6 +1,6 @@
-package com.lily.mvp.mode.model;
+package com.lily.mvp.mode.demo;
 
-import com.lily.mvp.mode.interfaces.Callback;
+import com.lily.mvp.mode.core.interfaces.Callback;
 
 public class TestModel implements ITestModel {
 
