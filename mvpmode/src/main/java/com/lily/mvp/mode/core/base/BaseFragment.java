@@ -4,14 +4,17 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.lily.mvp.mode.core.view.IView;
 
-public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements IView {
+public abstract class BaseFragment<T extends BasePresenter> extends Fragment implements IView, LoaderManager.LoaderCallbacks<T> {
 
+    public static final int BASE_FRAGMENT_LOADER_ID = 188;
     protected T mPresenter;
     protected View fragmentView;
 
@@ -32,16 +35,15 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     @Override
     public void onStart() {
         super.onStart();
-        initPresenter();
-    }
-
-    private void initPresenter() {
-        if (mPresenter == null) {
-            mPresenter = createPresenter();
-        }
         if (mPresenter != null) {
             mPresenter.attachView(this);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getLoaderManager().initLoader(BASE_FRAGMENT_LOADER_ID, null, this);
     }
 
     @Override
@@ -52,9 +54,25 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
         }
     }
 
+    @NonNull
+    @Override
+    public Loader<T> onCreateLoader(int id, @Nullable Bundle args) {
+        return createPresenterLoader();
+    }
+
+    @Override
+    public void onLoadFinished(@NonNull Loader<T> loader, T data) {
+        mPresenter = data;
+    }
+
+    @Override
+    public void onLoaderReset(@NonNull Loader<T> loader) {
+        mPresenter = null;
+    }
+
     protected abstract int onBindLayoutId();
 
-    protected abstract T createPresenter();
+    protected abstract Loader<T> createPresenterLoader();
 
     protected abstract void init();
 }

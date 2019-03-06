@@ -2,9 +2,12 @@ package com.lily.mvp.mode.demo;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.Loader;
 
 import com.lily.mvp.mode.core.base.BaseActivity;
 import com.lily.mvp.mode.core.base.ExpandPresenter;
+import com.lily.mvp.mode.core.presenter.PresenterFactory;
+import com.lily.mvp.mode.core.presenter.PresenterLoader;
 
 /**
  * 单页面多网络请求
@@ -21,6 +24,19 @@ public class MultipleActivity extends BaseActivity<ExpandPresenter> implements T
     }
 
     @Override
+    protected Loader<ExpandPresenter> createPresenterLoader(int id, @Nullable Bundle args) {
+        return new PresenterLoader(this, new PresenterFactory<ExpandPresenter>() {
+            @Override
+            public ExpandPresenter create() {
+                return createPresenter();
+            }
+        });
+    }
+
+    /**
+     *
+     * @return
+     */
     protected ExpandPresenter createPresenter() {
         ExpandPresenter expandPresenter = new ExpandPresenter(this);
 
