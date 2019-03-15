@@ -1,1 +1,1 @@
-include ':app', ':android-design', ':android-andfix', ':guide', ':keyboard', ':mvpmode', ':mvpro'
+include ':app', ':android-design', ':android-andfix', ':guide', ':keyboard', ':mvpmode', ':mvpro', ':yuyin'
