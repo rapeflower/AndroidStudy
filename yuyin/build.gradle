@@ -6,7 +6,8 @@ android {
 
 
     defaultConfig {
-        applicationId "com.lily.yuyin"
+        //com.lily.yuyin
+        applicationId "com.baidu.speech.recognizerdemo"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
@@ -21,6 +22,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    packagingOptions{
+        doNotStrip "*/*/libvad.dnn.so"
+        doNotStrip "*/*/libbd_easr_s1_merge_normal_20151216.dat.so"
     }
 
 }

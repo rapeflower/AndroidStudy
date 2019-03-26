@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lily.yuyin">
 
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +15,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.baidu.speech.APP_ID"
+            android:value="15590577"/>
+        <meta-data
+            android:name="com.baidu.speech.API_KEY"
+            android:value="q2uPyBe6LmWTZlvb0g1dzcHV"/>
+        <meta-data
+            android:name="com.baidu.speech.SECRET_KEY"
+            android:value="y7S7hAI894BB3LF1yHYmvQEus1B6wPvj"/>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +33,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".recognizer.OnlineRecognizerActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
+
+        <service android:name="com.baidu.speech.VoiceRecognitionService" android:exported="false" />
     </application>
 
 </manifest>

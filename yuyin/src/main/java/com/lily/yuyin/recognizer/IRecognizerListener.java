@@ -1,10 +1,15 @@
 package com.lily.yuyin.recognizer;
 
+/**
+ * @Author rape flower
+ * @Date 2019-03-26 10:56
+ * @Describe 百度语音识别监听
+ */
 public interface IRecognizerListener {
 
     /**
-     *  CALLBACK_EVENT_ASR_READY
-     *  ASR_START 输入事件调用后，引擎准备完毕
+     * CALLBACK_EVENT_ASR_READY
+     * ASR_START 输入事件调用后，引擎准备完毕
      */
     void onAsrReady();
 

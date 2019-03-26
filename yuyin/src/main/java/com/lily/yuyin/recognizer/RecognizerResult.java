@@ -4,6 +4,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * @Author rape flower
+ * @Date 2019-03-26 10:54
+ * @Describe 百度语音识别结果mode
+ */
 public class RecognizerResult {
 
     private static final int ERROR_NONE = 0;
