@@ -1,6 +1,7 @@
 package com.lily.yuyin.recognizer;
 
 import android.os.Bundle;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +20,7 @@ import java.util.Map;
  * @Date 2019-03-26 10:54
  * @Describe 百度语音识别结果mode
  */
-public class OnlineRecognizerActivity extends BaseActivity {
+public class OnlineRecognizerActivity extends BaseActivity implements IStatus {
 
     private static final String TAG = OnlineRecognizerActivity.class.getSimpleName();
     private TextView tvRecognizerResult;
@@ -36,7 +37,8 @@ public class OnlineRecognizerActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_online_recognizer);
         initView();
-        recognizer = new BdRecognizer(this, listener);
+        IRecognizerListener recognizerListener = new MessageStatusListener(mHandler);
+        recognizer = new BdRecognizer(this, recognizerListener);
 
         Log.w(TAG, "nativeLibraryDir = " + getApplicationInfo().nativeLibraryDir);
     }
@@ -100,6 +102,26 @@ public class OnlineRecognizerActivity extends BaseActivity {
      */
     protected void cancel() {
         recognizer.cancel();
+    }
+
+    @Override
+    protected void handleMessage(Message msg) {
+        super.handleMessage(msg);
+        switch (msg.what) {
+            case STATUS_FINISHED:
+                Log.w(TAG, "arg2 =" + msg.arg2);
+                if (msg.arg2 == 1) {
+                    tvRecognizerResult.setText(msg.obj.toString());
+                }
+                break;
+            case STATUS_NONE:
+            case STATUS_READY:
+            case STATUS_SPEAKING:
+            case STATUS_RECOGNITION:
+                break;
+            default:
+                break;
+        }
     }
 
     /**
