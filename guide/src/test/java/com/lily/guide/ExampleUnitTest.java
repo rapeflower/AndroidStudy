@@ -1,4 +1,4 @@
-package android.lily.guide;
+package com.lily.guide;
 
 import org.junit.Test;
 

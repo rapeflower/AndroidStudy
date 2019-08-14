@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="filled_text">
+        <attr name="filledText" format="string" />
+        <attr name="fillTextSize" format="dimension" />
+        <attr name="normalColor" format="color" />
+        <attr name="fillColor" format="color" />
+        <attr name="rowSpace" format="dimension" />
+    </declare-styleable>
+</resources>

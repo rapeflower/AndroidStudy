@@ -1,4 +1,4 @@
-package android.lily.guide;
+package com.lily.guide;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
