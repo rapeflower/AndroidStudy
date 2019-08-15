@@ -146,14 +146,14 @@ public class FillTextView extends View implements ExInputConnection.InputListene
         if (ta.hasValue(R.styleable.filled_text_fillTextSize)) {
             mTextSize = ta.getDimension(R.styleable.filled_text_fillTextSize, mTextSize);
         }
-        if (ta.hasValue(R.styleable.filled_text_filledText)) {
-            mText = mText.append(ta.getText(R.styleable.filled_text_filledText));
+        if (ta.hasValue(R.styleable.filled_text_fillText)) {
+            mText = mText.append(ta.getText(R.styleable.filled_text_fillText));
         }
-        if (ta.hasValue(R.styleable.filled_text_normalColor)) {
-            mNormalColor = ta.getColor(R.styleable.filled_text_normalColor, Color.BLACK);
+        if (ta.hasValue(R.styleable.filled_text_normalTextColor)) {
+            mNormalColor = ta.getColor(R.styleable.filled_text_normalTextColor, Color.BLACK);
         }
-        if (ta.hasValue(R.styleable.filled_text_fillColor)) {
-            mFillColor = ta.getColor(R.styleable.filled_text_fillColor, Color.BLACK);
+        if (ta.hasValue(R.styleable.filled_text_fillTextColor)) {
+            mFillColor = ta.getColor(R.styleable.filled_text_fillTextColor, Color.BLACK);
         }
         if (ta.hasValue(R.styleable.filled_text_rowSpace)) {
             mRowSpace += ta.getDimension(R.styleable.filled_text_rowSpace, 0f);

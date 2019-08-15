@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        app:fillColor="@android:color/darker_gray"
+        app:fillTextColor="@android:color/darker_gray"
         app:fillTextSize="16sp"
         app:rowSpace="3dp"/>
 
