@@ -1,5 +1,6 @@
 package com.lily.guide.fill;
 
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.BaseInputConnection;
@@ -18,7 +19,7 @@ public class ExInputConnection extends BaseInputConnection {
 
     @Override
     public boolean commitText(CharSequence text, int newCursorPosition) {
-        if (!isEmoji(text)) {
+        if (!isEmoji(text) && !TextUtils.isEmpty(text)) {
             mListener.onTextInput(text);
         }
         return super.commitText(text, newCursorPosition);
